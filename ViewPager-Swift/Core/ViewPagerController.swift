@@ -65,7 +65,7 @@ class ViewPagerController:UIViewController {
     fileprivate func setupTabContainerView() {
         
         // Creating container for Tab View
-        tabContainer = UIScrollView(frame: CGRect(x: 0, y: options.viewPagerPosition.y, width: options.getViewPagerWidth(), height: options.tabViewHeight))
+        tabContainer = UIScrollView(frame: CGRect(x: options.getViewPagerPaddingLeft(), y: options.viewPagerPosition.y, width: options.getViewPagerWidth() - options.getViewPagerPaddingLeft(), height: options.tabViewHeight))
         tabContainer.backgroundColor = options.tabViewBackgroundDefaultColor
         tabContainer.isScrollEnabled = true
         tabContainer.showsVerticalScrollIndicator = false
@@ -82,7 +82,7 @@ class ViewPagerController:UIViewController {
         let viewDict:[String:UIView] = ["v0":self.tabContainer!]
         let metrics:[String:CGFloat] = ["tabViewHeight":options.tabViewHeight, "tabContainerYPosition":options.viewPagerPosition.y,"tabViewWidth":options.getViewPagerWidth()]
         
-        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: metrics, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(options.getViewPagerPaddingLeft())-[v0]-0-|", options: NSLayoutFormatOptions(), metrics: metrics, views: viewDict))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(tabContainerYPosition)-[v0(tabViewHeight)]", options: NSLayoutFormatOptions(), metrics: metrics, views: viewDict))
     }
     

@@ -33,6 +33,7 @@ class ViewPagerOptions {
     var tabViewPaddingLeft:CGFloat!
     var tabViewPaddingRight:CGFloat!
     var tabViewTextFont:UIFont!
+    var tabViewTextFontHighlight:UIFont!
     var tabViewImageSize:CGSize!
     var tabViewImageMarginTop:CGFloat!
     var tabViewImageMarginBottom:CGFloat!
@@ -44,6 +45,7 @@ class ViewPagerOptions {
     // ViewPager
     var viewPagerTransitionStyle:UIPageViewControllerTransitionStyle!
     var viewPagerPosition:CGPoint!
+    var viewPagerPaddingLeft:CGFloat!
     
     /**
      * Initializes Options for ViewPager. The frame of the supplied UIView in view parameter is
@@ -75,6 +77,7 @@ class ViewPagerOptions {
         self.fitAllTabsInView = false
         
         self.tabViewTextFont = UIFont.systemFont(ofSize: 16)
+        self.tabViewTextFontHighlight = UIFont.systemFont(ofSize: 17)
         self.tabViewImageSize = CGSize(width: 25, height: 25)
         self.tabViewImageMarginTop = 5                                          // used incase of imageWithText
         self.tabViewImageMarginBottom = 5                                       // used incase of imageWithText
@@ -84,6 +87,7 @@ class ViewPagerOptions {
         self.viewPagerHeight = viewPagerFrame.size.height - tabViewHeight
         self.viewPagerPosition = viewPagerFrame.origin
         self.viewPagerTransitionStyle = UIPageViewControllerTransitionStyle.scroll
+        self.viewPagerPaddingLeft = 0
         
         // Tab Indicator
         self.tabIndicatorViewHeight = 3
@@ -100,6 +104,10 @@ class ViewPagerOptions {
     
     func getViewPagerWidth() -> CGFloat {
         return self.viewPagerWidth
+    }
+    
+    func getViewPagerPaddingLeft() -> CGFloat {
+        return self.viewPagerPaddingLeft
     }
     
     fileprivate struct Color {

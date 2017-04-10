@@ -276,12 +276,14 @@ class ViewPagerTabView: UIView {
         
         self.backgroundColor = options.tabViewBackgroundHighlightColor
         self.titleLabel?.textColor = options.tabViewTextHighlightColor
+        self.titleLabel?.font = options.tabViewTextFontHighlight
     }
     
     func removeHighlight(options:ViewPagerOptions) {
         
         self.backgroundColor = options.tabViewBackgroundDefaultColor
         self.titleLabel?.textColor = options.tabViewTextDefaultColor
+        self.titleLabel?.font = options.tabViewTextFont
     }
     
 
